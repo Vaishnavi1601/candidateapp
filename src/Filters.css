@@ -1,0 +1,19 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  gap: 20px;
+}
+.custom-select {
+  width: 15rem;
+}
+@media (max-width: 500px) {
+  .filters {
+    display: block;
+    padding: 15px;
+  }
+
+  .custom-select {
+    margin-bottom: 10px;
+  }
+}
