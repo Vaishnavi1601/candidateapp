@@ -1,3 +1,6 @@
-.cardCover{
-  width: 350px;
+.custom-btn{
+  width: -webkit-fill-available;
+  background: aquamarine !important; 
+  color: black !important;
+  font-weight: bold !important;
 }

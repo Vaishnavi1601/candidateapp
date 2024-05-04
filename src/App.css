@@ -1,11 +1,30 @@
-.cards{
-  margin-top: 25px;
+.wrapper{
+  display: flex;
+  margin-top: 10px;
+}
+.filters {
   display: flex;
   justify-content: center;
-  gap: 23px;
+  margin-right: 10px;
+  gap: 20px;
 }
-.wrapper{
-  display: block;
-  margin-top: 10px;
-  gap:20px
+.jobCardContainer {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  margin-left: 60px;
+  margin-right: 65px;
 }
+
+@media (max-width: 500px) {
+  .filters {
+    display: block;
+    padding: 15px;
+  }
+}
+/* .cardCover{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40;
+} */

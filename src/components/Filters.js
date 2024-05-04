@@ -1,24 +1,29 @@
 import React from 'react'
 import Select from 'react-select'
 import './Filters.css'
-  
+import { useDispatch, useSelector } from "react-redux";
 
-export default function Filters() {
+export default function Filters(props) {
+  const { options, placeholder, onChangeHandlers } = props;
+
+  const handleMultiSelectChange = (selectedOptions) => {
+    onChangeHandlers.forEach(handler => handler(selectedOptions));
+  };
   return (
     <>
-    <div className="filters">
-    <Select className='custom-select'
-        isMulti
-        
-      />
-      <Select className='custom-select'
-        isMulti
-        
-      />
-      <Select className='custom-select'
-        isMulti
-        
-      />
+    <div>
+      <Select
+          options={options.map((eachOption) => ({
+            value: eachOption,
+            label: eachOption,
+          }))}
+          isMulti
+          name={`filters-${placeholder}`}
+          className="custom-select"
+          classNamePrefix="select"
+          placeholder={placeholder}
+          onChange={handleMultiSelectChange}
+        />
     </div>
     </>
   )
