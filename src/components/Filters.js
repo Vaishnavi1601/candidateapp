@@ -1,7 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
-import './Filters.css'
-import { useDispatch, useSelector } from "react-redux";
+import '../styles/Filters.css'
 
 export default function Filters(props) {
   const { options, placeholder, onChangeHandlers } = props;

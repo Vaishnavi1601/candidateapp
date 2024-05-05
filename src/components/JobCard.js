@@ -3,12 +3,10 @@ import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Grid from "@mui/system/Unstable_Grid";
-import styled from "@mui/system/styled";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
-import "./JobCard.css";
+import '../styles/JobCard.css'
 
 const useStyles = makeStyles({
   root: {

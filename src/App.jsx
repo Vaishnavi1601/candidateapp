@@ -4,12 +4,12 @@ import JobCard from './components/JobCard'
 import { useDispatch, useSelector } from "react-redux";
 import { getJobs } from "./store/action";
 import InfiniteScroll from "react-infinite-scroll-component";
-import './App.css'
+import "./styles/App.css";
 
 export default function App() {
 
   const dispatch = useDispatch();
-  const { jobs, filters, loading, error } = useSelector((state) => state.jobs);
+  const { jobs, filters} = useSelector((state) => state.jobs);
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedMinBasePay, setSelectedMinBasePay] = useState([]);

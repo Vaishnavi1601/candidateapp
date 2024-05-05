@@ -1,16 +1,18 @@
-.wrapper{
+.wrapper {
   display: flex;
   margin-top: 10px;
 }
+
 .filters {
   display: flex;
   justify-content: center;
   margin-right: 10px;
   gap: 20px;
 }
+
 .jobCardContainer {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 60px;
   margin-right: 65px;
