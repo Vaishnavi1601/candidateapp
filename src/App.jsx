@@ -33,7 +33,6 @@ export default function App() {
     setSelectedMinExp(selectedOptions.map((option) => option.value));
   };
 
-
   // Filter jobs based on selected filters
   const filteredJobs = jobs.filter((job) => {
     const roleFilter =
@@ -52,6 +51,19 @@ export default function App() {
     return roleFilter && locationFilter && minExpFilter && basePayFilter;
   });
 
+  const capitalizeFirstLetter = (str) => {
+    if (typeof str !== 'string' || str.length === 0) return str; // handle null values and non-string values
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  // Modify the filters object to capitalize the first letter of each string and handle null values
+  const capitalizedFilters = Object.fromEntries(
+    Object.entries(filters).map(([key, value]) => [
+      key,
+      Array.isArray(value) ? value.map((str) => capitalizeFirstLetter(str)) : null,
+    ])
+  );
+
   // fetch initial set of jobs on component mount
   useEffect(() => {
     dispatch(getJobs({ offset: 0 }));
@@ -63,12 +75,12 @@ export default function App() {
 
           <Filters
             placeholder={"Roles"}
-            options={filters.roles}
+            options={capitalizedFilters.roles}
             onChangeHandlers={[handleRoleChange]}
           />
           <Filters
             placeholder={"Location"}
-            options={filters.location}
+            options={capitalizedFilters.location}
             onChangeHandlers={[handleLocationChange]}
           />
           <Filters
