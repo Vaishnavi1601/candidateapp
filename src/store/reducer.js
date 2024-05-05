@@ -7,6 +7,7 @@ import {
   APPEND_MIN_EXP,
 } from "./action";
 
+// initial state of the reducer
 const initialState = {
   jobs: [],
   filters: {
@@ -19,7 +20,7 @@ const initialState = {
   loading: false,
   error: null,
 };
-
+// reducer function that updates the state based on dispatched actions
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case APPEND_JOB_LIST:
@@ -28,10 +29,11 @@ const reducer = (state = initialState, action) => {
         jobs: [...state.jobs, ...action.payload],
       };
     case APPEND_JOB_ROLES:
+      // append new job roles to existing roles array, removing duplicates
       const filteredJobRoles = [
         ...new Set([...state.filters?.roles, ...action.payload]),
       ];
-
+      // update state with new filtered roles
       return {
         ...state,
         filters: {
@@ -91,7 +93,7 @@ const reducer = (state = initialState, action) => {
         },
       };
     default:
-      return state;
+      return state;  
   }
 };
 

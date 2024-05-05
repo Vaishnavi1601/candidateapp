@@ -7,13 +7,16 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./styles/App.css";
 
 export default function App() {
+  const dispatch = useDispatch();  //intialize redux dispatch function
+  const { jobs, filters } = useSelector((state) => state.jobs);  // extract jobs and filters state from Redux store
 
-  const dispatch = useDispatch();
-  const { jobs, filters} = useSelector((state) => state.jobs);
+  // initialize state for selected roles, locations, minimum base pay, and minimum experience
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedMinBasePay, setSelectedMinBasePay] = useState([]);
   const [selectedMinExp, setSelectedMinExp] = useState([]);
+
+  // eventHandler for selected fileter
   const handleRoleChange = (selectedOptions) => {
     setSelectedRoles(selectedOptions.map((option) => option.value));
   };
@@ -22,19 +25,19 @@ export default function App() {
     setSelectedLocations(selectedOptions.map((option) => option.value));
   };
   const handleMinBasePayChange = (selectedOptions) => {
-    console.log("selectedOptions,selectedOptions",selectedOptions);
+    console.log("selectedOptions,selectedOptions", selectedOptions);
     setSelectedMinBasePay(selectedOptions.map((option) => option.value));
   };
 
   const handleMinExpChange = (selectedOptions) => {
     setSelectedMinExp(selectedOptions.map((option) => option.value));
   };
- 
+
+
+  // Filter jobs based on selected filters
   const filteredJobs = jobs.filter((job) => {
-    // Check if the job role is in selected roles
     const roleFilter =
       selectedRoles.length === 0 || selectedRoles.includes(job.jobRole);
-    // Check if the location is in selected locations
     const locationFilter =
       selectedLocations.length === 0 ||
       selectedLocations.includes(job.location);
@@ -49,8 +52,7 @@ export default function App() {
     return roleFilter && locationFilter && minExpFilter && basePayFilter;
   });
 
-  console.log("dispatch", dispatch);
-
+  // fetch initial set of jobs on component mount
   useEffect(() => {
     dispatch(getJobs({ offset: 0 }));
   }, [dispatch]);

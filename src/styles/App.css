@@ -18,15 +18,21 @@
   margin-right: 65px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1060px) {
   .filters {
     display: block;
+    margin: 0 auto;
     padding: 15px;
+    text-align: center;
+    width: fit-content;
   }
 }
-/* .cardCover{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40;
-} */
+
+@media (max-width: 320px) {
+  .jobCardContainer {
+      margin-left: 10px;
+      margin-right: 10px;
+      justify-content: center;
+  }
+}
+
