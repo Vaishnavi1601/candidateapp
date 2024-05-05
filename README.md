@@ -1,7 +1,8 @@
 # Candidate Application Platform
 
-This repository contains a frontend project created with Create React App, utilizing Material-UI's custom CSS for styling. The application serves as a job finder tool, allowing users to search and browse through available jobs.
+This repository contains a frontend project created with Create React App, utilizing Material-UI's custom CSS for styling. The application serves as a job finder tool, allowing users to search and browse through available jobs along with custom filters for easy searching.
 
+**Hosted Site**: This site has been successfully hosted on Netlify. You can access it at [https://assignment-weekday.netlify.app](https://assignment-weekday.netlify.app).
 ## Instructions
 
 To run the application locally, follow these steps:
@@ -50,4 +51,5 @@ The main packages used in this project include:
 
 ## Additional Information
 
-For any inquiries or issues regarding this application, please feel free to contact [your email or username].
+For any inquiries or issues regarding this application, please feel free to contact vaishujais1601@gmail.com.
+
