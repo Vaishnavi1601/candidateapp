@@ -22,13 +22,14 @@ export default function App() {
     setSelectedLocations(selectedOptions.map((option) => option.value));
   };
   const handleMinBasePayChange = (selectedOptions) => {
+    console.log("selectedOptions,selectedOptions",selectedOptions);
     setSelectedMinBasePay(selectedOptions.map((option) => option.value));
   };
 
   const handleMinExpChange = (selectedOptions) => {
     setSelectedMinExp(selectedOptions.map((option) => option.value));
   };
-
+ 
   const filteredJobs = jobs.filter((job) => {
     // Check if the job role is in selected roles
     const roleFilter =
@@ -37,15 +38,15 @@ export default function App() {
     const locationFilter =
       selectedLocations.length === 0 ||
       selectedLocations.includes(job.location);
-    // Return true if both filters pass
+
     const basePayFilter =
       selectedMinBasePay.length === 0 ||
-      selectedMinBasePay.includes(job.minBasePay);
+      selectedMinBasePay.includes(job.minJdSalary);
 
     const minExpFilter =
       selectedMinExp.length === 0 ||
       selectedMinExp.includes(job.minExp);
-    return roleFilter && locationFilter && minExpFilter;
+    return roleFilter && locationFilter && minExpFilter && basePayFilter;
   });
 
   console.log("dispatch", dispatch);
